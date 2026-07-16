@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Title | Official Website</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 </head>
 <body>
 
@@ -30,19 +32,30 @@
 
     <section id="showcase">
         <h2>Showcase</h2>
-        <div class="grid">
-            <div class="tile">Screenshot 1</div>
-            <div class="tile">Screenshot 2</div>
-            <div class="tile">Screenshot 3</div>
+        <div class="splide" aria-label="Game Screenshots">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><div class="tile">Screenshot 1</div></li>
+                    <li class="splide__slide"><div class="tile">Screenshot 2</div></li>
+                    <li class="splide__slide"><div class="tile">Screenshot 3</div></li>
+                    <li class="splide__slide"><div class="tile">Screenshot 4</div></li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="roadmap">
         <h2>Roadmap</h2>
-        <ul>
-            <li>Q3 2026: Demo Launch</li>
-            <li>Q4 2026: Beta Testing</li>
-        </ul>
+        <div class="roadmap-grid">
+            <div class="roadmap-tile">
+                <h3>Q3 2026</h3>
+                <p>Demo Launch</p>
+            </div>
+            <div class="roadmap-tile">
+                <h3>Q4 2026</h3>
+                <p>Beta Testing</p>
+            </div>
+        </div>
     </section>
 
     <section id="faq">
@@ -51,9 +64,37 @@
     </section>
 
     <footer>
+        <div class="nap-section">
+            <p><strong>Studio Name</strong></p>
+            <p>Street Address, Postal Code City, Country</p>
+            <p>NIP: 123-456-78-90 | REGON: 123456789</p>
+        </div>
+        <hr style="width: 50%; opacity: 0.3;">
         <p>Socials: <a href="#">Twitter</a> | <a href="#">PressKit</a></p>
         <p>&copy; 2026 Studio Name</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('.splide',
+                {
+                    type: 'loop',
+                    perPage: 3,
+                    perMove: 1,
+                    gap: '20px',
+                    pagination: false,
+                    arrows: true,
+                    autoplay: true,
+                    interval: 3000,
+                    speed: 2000,
+                    pauseOnHover: true,
+                    breakpoints: {
+                        768: { perPage: 1 }
+                }
+            }).mount();
+        });
+    </script>
 </body>
 </html>
