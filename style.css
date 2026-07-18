@@ -35,12 +35,59 @@ body {
     text-align: center;
 }
 
+#showcase {
+    max-width: 100%;
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+#showcase h2 {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.splide__track {
+    overflow: visible;
+}
+
+.splide__list {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.splide__slide {
+    opacity: .45;
+    transition: opacity .4s ease;
+}
+
+.splide__slide.is-active {
+    opacity: 1;
+}
+
+.splide__slide:not(.is-active) {
+    cursor: pointer;
+}
+
+.splide__slide:not(.is-active):hover .tile {
+    filter: brightness(1.25);
+}
+
 .tile {
     background: #222;
-    height: 200px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    transform: scale(.85);
+    transition: transform .45s ease, filter .3s ease;
+}
+
+.splide__slide.is-active .tile {
+    transform: scale(1);
 }
 
 .roadmap-grid {
@@ -57,8 +104,8 @@ body {
 }
 
 section {
-    padding: 50px 20px;
-    max-width: 1000px;
+    padding: 60px 20px;
+    max-width: 1400px;
     margin: auto;
 }
 
@@ -68,6 +115,10 @@ footer {
     background: #000;
 }
 
+.splide__arrow {
+    background: white;
+    opacity: .9;
+}
 .cta-buttons a {
     background: #fff;
     color: #000;

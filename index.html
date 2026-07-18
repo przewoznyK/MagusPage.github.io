@@ -75,25 +75,26 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            new Splide('.splide',
-                {
-                    type: 'loop',
-                    perPage: 3,
-                    perMove: 1,
-                    gap: '20px',
-                    pagination: false,
-                    arrows: true,
-                    autoplay: true,
-                    interval: 3000,
-                    speed: 2000,
-                    pauseOnHover: true,
-                    breakpoints: {
-                        768: { perPage: 1 }
-                }
-            }).mount();
+        document.addEventListener('DOMContentLoaded', () => {
+            const splide = new Splide('.splide', {
+                type: 'loop',
+                perPage: 1,
+                focus: 'center',
+                padding: '20%',
+                gap: '20px',
+                autoplay: true,
+                interval: 4000,
+                speed: 800,
+                arrows: true,
+                pagination: true
+            });
+
+            splide.mount();
+
+            splide.on('click', slide => {
+                splide.go(slide.index);
+            });
         });
     </script>
 </body>
